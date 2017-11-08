@@ -1,17 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Groups
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-list>
+  <ion-item *ngFor="let group of groups">
+    <h2>{{ group.displayName }}</h2>
+    <p>{{ group.description }} </p>
+  </ion-item>
+</ion-list>
 </ion-content>

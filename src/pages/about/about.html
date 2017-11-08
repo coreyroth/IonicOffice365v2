@@ -1,11 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Users
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item *ngFor="let user of users">
+      <h2>{{ user.displayName }}</h2>
+      <p>{{ user.jobTitle }} </p>
+    </ion-item>
+  </ion-list>
 </ion-content>

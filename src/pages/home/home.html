@@ -14,4 +14,34 @@
     Take a look at the <code>src/pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
   </p>
+
+    <ion-card *ngIf="userProfile">
+      <ion-card-header>
+        Connected to Office 365
+      </ion-card-header>
+      <ion-card-content>
+        <div class="ms-Persona">
+          <div class="ms-Persona-imageArea">
+            <img class="ms-Persona-image" [src]="userProfile.photo" *ngIf="userProfile.photo" />
+          </div>
+          <div class="ms-Persona-presence" *ngIf="userProfile.photo">
+            <i class="ms-Persona-presenceIcon ms-Icon ms-Icon--SkypeCheck"></i>
+          </div>
+          <div class="ms-Persona-details">
+            <div class="ms-Persona-primaryText">{{ userProfile.displayName }}</div>
+            <div class="ms-Persona-secondaryText">{{ userProfile.jobTitle }}</div>
+          </div>
+        </div>
+    
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <a (click)="logoutTapped($event)" ion-button clear color="danger">Sign-out</a>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    
+    <button ion-button (click)="login($event)">Login</button>
+    <button ion-button (click)="getUserProfile(event)">Get User Profile</button>
+    <button ion-button (click)="logout($event)">Logout</button>
 </ion-content>
